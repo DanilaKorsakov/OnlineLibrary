@@ -3,6 +3,7 @@ import json
 from http.server import HTTPServer, SimpleHTTPRequestHandler
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from livereload import Server, shell
+from more_itertools import chunked
 
 
 def on_reload():
@@ -13,6 +14,8 @@ def on_reload():
 
     books = json.loads(books_json)
 
+    books_row = list(chunked(books,2))
+
     env = Environment(
         loader=FileSystemLoader('.'),
         autoescape=select_autoescape(['html'])
@@ -20,7 +23,7 @@ def on_reload():
     template = env.get_template('template.html')
 
     rendered_page = template.render(
-        books=books
+        books_row=books_row
     )
 
     with open('index.html', 'w', encoding="utf8") as file:
