@@ -11,10 +11,12 @@ def on_reload():
     with open("books.json", "r", encoding='utf-8') as my_file:
         books_json = my_file.read()
 
+    book_txt_url= "https://tululu.org/txt.php"
 
     books = json.loads(books_json)
 
     books_row = list(chunked(books,2))
+
 
     env = Environment(
         loader=FileSystemLoader('.'),
