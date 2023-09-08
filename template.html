@@ -19,7 +19,7 @@
         <ul class="pagination " >
           {% if page_number == 1 %}
             <li class="page-item disabled">
-              <a class="page-link" tabindex="-1" aria-disabled="true" href="./index{{page_number-1}}.html">Назад</a>
+              <a class="page-link" tabindex="-1" aria-disabled="true" href="#">Назад</a>
             </li>
           {% else %}
             <li class="page-item">
@@ -39,7 +39,7 @@
           {%endfor%}
           {% if page_number == pages_count %}
             <li class="page-item disabled">
-              <a class="page-link" tabindex="-1" aria-disabled="true" href="./index{{page_number+1}}.html">Вперёд</a>
+              <a class="page-link" tabindex="-1" aria-disabled="true" href="#">Вперёд</a>
             </li>
           {% else %}
             <li class="page-item">
