@@ -56,7 +56,7 @@
               <div class="card mb-3"  style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="{{book.image_url}}" class="card-img img-fluid" alt="{{book.image_url}}">
+                    <img src="../assets/images/{{book.image_url.split('/')[-1]}}" class="card-img img-fluid" alt="{{book.image_url}}">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -67,7 +67,7 @@
                           <span class="badge badge-light">{{genre}}</span>
                         {% endfor %}
                       </p>
-                      <a href="https://tululu.org/txt.php?id={{book.id}}" target="_blank">Читать</a>
+                      <a href="../assets/books/{{book.id}}.{{book.title.replace(':','')}}.txt" target="_blank">Читать</a>
                     </div>
                   </div>
                 </div>
