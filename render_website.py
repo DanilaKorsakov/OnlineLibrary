@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+import argparse
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 from livereload import Server
@@ -9,7 +10,13 @@ from more_itertools import chunked
 
 def on_reload():
 
-    with open("books.json", "r", encoding='utf-8') as my_file:
+    parser = argparse.ArgumentParser(
+        description='Программа предоставляет доступ к сайту с книгами'
+    )
+    parser.add_argument("--json_path", type=str, help="путь к JSON файлу", default='books.json')
+    args = parser.parse_args()
+
+    with open(args.json_path, "r", encoding='utf-8') as my_file:
         books_json = my_file.read()
 
     books = json.loads(books_json)
