@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
-from livereload import Server, shell
+from livereload import Server
 from more_itertools import chunked
 
 
@@ -11,8 +11,6 @@ def on_reload():
 
     with open("books.json", "r", encoding='utf-8') as my_file:
         books_json = my_file.read()
-
-    book_txt_url= "https://tululu.org/txt.php"
 
     books = json.loads(books_json)
 
