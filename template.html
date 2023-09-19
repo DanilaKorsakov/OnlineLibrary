@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../assets/css/cdn.jsdelivr.net_npm_bootstrap@4.5.3_dist_css_bootstrap.min.css" >
-    <link rel="icon" href="../assets/images/favicon.ico">
+    <link rel="stylesheet" href="../static/css/cdn.jsdelivr.net_npm_bootstrap@4.5.3_dist_css_bootstrap.min.css" >
+    <link rel="icon" href="../static/images/favicon.ico">
 
     <title>Онлайн библиотека</title>
   </head>
@@ -57,7 +57,7 @@
               <div class="card mb-3"  style="max-width: 540px;">
                 <div class="row no-gutters">
                   <div class="col-md-4">
-                    <img src="../assets/images/{{book.image_url.split('/')[-1]}}" class="card-img img-fluid" alt="{{book.image_url}}">
+                    <img src="../media/{{book.img_src}}" class="card-img img-fluid" alt="{{book.img_src}}">
                   </div>
                   <div class="col-md-8">
                     <div class="card-body">
@@ -68,7 +68,7 @@
                           <span class="badge badge-light">{{genre}}</span>
                         {% endfor %}
                       </p>
-                      <a href="../assets/books/{{book.id}}.{{book.title.replace(':','')}}.txt" target="_blank">Читать</a>
+                      <a href="../media/{{book.book_path}}" target="_blank">Читать</a>
                     </div>
                   </div>
                 </div>
@@ -81,9 +81,9 @@
     </div>
 
 
-    <script src="../assets/js/code.jquery.com_jquery-3.3.1.slim.min.js"></script>
-    <script src="../assets/js/cdnjs.cloudflare.com_ajax_libs_popper.js_1.14.7_umd_popper.min.js"></script>
-    <script src="../assets/js/stackpath.bootstrapcdn.com_bootstrap_4.3.1_js_bootstrap.min.js" ></script>
+    <script src="../static/js/code.jquery.com_jquery-3.3.1.slim.min.js"></script>
+    <script src="../static/js/cdnjs.cloudflare.com_ajax_libs_popper.js_1.14.7_umd_popper.min.js"></script>
+    <script src="../static/js/stackpath.bootstrapcdn.com_bootstrap_4.3.1_js_bootstrap.min.js" ></script>
 
   </body>
 </html>
