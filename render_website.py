@@ -16,9 +16,8 @@ def on_reload():
     args = parser.parse_args()
 
     with open(args.json_path, "r", encoding = "utf-8") as my_file:
-        books_json = my_file.read()
+        books = json.load(my_file)
 
-    books = json.loads(books_json)
 
     env = Environment(
         loader = FileSystemLoader('.'),
