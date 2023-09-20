@@ -25,11 +25,17 @@ def on_reload():
     )
     template = env.get_template("template.html")
 
-    per_page_books = list(chunked(books,10))
+    page_books_number = 10
+
+    row_books_number = 2
+
+    per_page_books = list(chunked(books,page_books_number))
     pages_count = len(per_page_books)
 
+
+
     for number, page in enumerate(per_page_books, 1):
-        row_of_books = list(chunked(page,2))
+        row_of_books = list(chunked(page,row_books_number))
 
         rendered_page = template.render(
             row_of_books = row_of_books,
