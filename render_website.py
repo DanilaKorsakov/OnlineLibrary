@@ -12,7 +12,6 @@ def on_reload():
     parser = argparse.ArgumentParser(
         description="Программа предоставляет доступ к сайту с книгами"
     )
-
     parser.add_argument(
         "--json_path",
         type=str,
@@ -31,33 +30,25 @@ def on_reload():
     template = env.get_template("template.html")
 
     page_books_number = 10
-
     row_books_number = 2
-
     per_page_books = list(chunked(books, page_books_number))
     pages_count = len(per_page_books)
 
     for number, page in enumerate(per_page_books, 1):
         row_of_books = list(chunked(page, row_books_number))
-
         rendered_page = template.render(
             row_of_books=row_of_books,
             page_number=number,
             pages_count=pages_count
         )
-
         with open(f"pages/index{number}.html", "w", encoding="utf8") as file:
             file.write(rendered_page)
 
 
 def main():
-
     folder = "pages/"
-
     Path(folder).mkdir(parents=True, exist_ok=True)
-
     on_reload()
-
     server = Server()
     server.watch("template.html", on_reload)
     server.serve(root=".",  default_filename="pages/index1.html")
